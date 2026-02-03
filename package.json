@@ -6,6 +6,9 @@
   "scripts": {
     "start": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "start:android": "concurrently \"npm run dev:backend\" \"npm run dev:frontend:android\"",
+    "mongo:up": "docker compose up -d mongo",
+    "mongo:down": "docker compose down",
+    "dev:with-mongo:android": "npm run mongo:up && npm run start:android",
     "dev": "npm run start",
     "dev:backend": "cd backend && npm run start",
     "dev:frontend": "cd frontend && npm start",
