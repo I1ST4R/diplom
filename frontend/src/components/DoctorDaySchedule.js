@@ -4,14 +4,9 @@ import { colors } from '../theme/colors';
 import { getDayKeyFromDate, timeToMinutes, minutesToTime } from '../utils/time';
 import { computeFreeSlots, getDoctorDayBlocks } from '../utils/schedule';
 
-/** Высота шкалы: пикселей на один час рабочего дня */
 const PIXELS_PER_HOUR = 72;
-/** Минимальная высота блока, чтобы поместился текст интервала */
 const MIN_BLOCK_HEIGHT = 48;
 
-/**
- * Визуализация расписания врача на день: шкала, занято, перерыв, свободные слоты.
- */
 export default function DoctorDaySchedule({
   doctor,
   date,
@@ -58,7 +53,7 @@ export default function DoctorDaySchedule({
         ))}
       </View>
       <View style={[styles.timeline, { height: timelineHeight }]}>
-        {hourMarks.slice(0, -1).map((h, i) => {
+        {hourMarks.slice(0, -1).map((h) => {
           const top = toTop(h);
           const halfTop = top + PIXELS_PER_HOUR / 2;
           return (
